@@ -3,6 +3,8 @@ Grails Pet Clinic application
 
 This is a Grails port of the standard Spring Pet Clinic web application. It's very simple, consisting of a few domain classes for persistence and three controllers to support the user interface.
 
+The application uses manual configuration to discover the database service bound to the application when pushed to Cloud Foundry, as described in the [Cloud Foundry documentation](http://docs.cloudfoundry.com/docs/using/services/grails-service-bindings.html). View the `grails-app/conf/DataSource.groovy` file to see how the database configuration is done. 
+
 ### The domain model
 
 This is the basic domain model for the Pet Clinic application:
@@ -19,17 +21,19 @@ An `Owner` has many `Pet`s, which in turn has many `Visit`s and a `PetType`. A `
 
 ## Building and running locally
 
-To run this application, make sure you have the appropriate version of Grails installed (at least 2.2.1). Then build and run the application using the following command:
+To build and run this application, use the following command:
 
-    $ grails run-app
+    $ ./grailsw run-app
 
 This will start the application in development mode and use an in-memory HSQLDB database.
+
+*Note:* The first time the `./grailsw` command is run, it will take a while to download the Grails framework. Subsequent Grails commands will run much faster.
 
 ## Deploying to Cloud Foundry
 
 To run the application on Cloud Foundry, first build the project into a .war file:
 
-    $ grails prod war
+    $ ./grailsw prod war
 
 After installing the 'cf' [command-line interface for Cloud Foundry](http://docs.cloudfoundry.com/docs/using/managing-apps/cf/),
 targeting a Cloud Foundry instance, and logging in, the application can be pushed using these commands:
