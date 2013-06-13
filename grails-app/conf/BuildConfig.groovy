@@ -13,7 +13,7 @@ grails.project.dependency.resolution = {
 
     dependencies {
         runtime "hsqldb:hsqldb:1.8.0.10", "postgresql:postgresql:9.1-901-1.jdbc4"
-        compile "org.cloudfoundry:cloudfoundry-runtime:0.8.2"
+        compile "org.cloudfoundry:cloudfoundry-runtime:0.8.4"
     }
 
     plugins {

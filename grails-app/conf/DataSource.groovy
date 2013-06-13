@@ -32,13 +32,19 @@ environments {
     production {
         dataSource {
             dbCreate = "update"
-            driverClassName = "com.mysql.jdbc.Driver"
 
             if (cloudEnv.isCloudFoundry()) {
-                def dbSvcInfo = cloudEnv.getServiceInfo("petclinic-mysql", RdbmsServiceInfo.class)
-                url = dbSvcInfo.url
-                username = dbSvcInfo.userName
-                password = dbSvcInfo.password
+                def dbSvcInfo = cloudEnv.getServiceInfos(RdbmsServiceInfo.class)
+                if (dbSvcInfo.size() > 0) {
+                    url = dbSvcInfo[0].url
+                    username = dbSvcInfo[0].userName
+                    password = dbSvcInfo[0].password
+
+                    if (url.startsWith("jdbc:mysql"))
+                        driverClassName = "com.mysql.jdbc.Driver"
+                    else if (url.startsWith("jdbc:postgres"))
+                        driverClassName = "org.postgresql.Driver"
+                }
             } else {
                 url = "jdbc:postgresql://localhost:5432/petclinic"
             }

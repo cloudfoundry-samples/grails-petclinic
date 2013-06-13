@@ -1,0 +1,13 @@
+---
+applications:
+- name: petclinic
+  memory: 512M
+  instances: 1
+  url: petclinic.${target-base}
+  path: target/pets4u-0.1.war
+  services:
+    petclinic-mysql:
+      label: cleardb
+      provider: cleardb
+      version: n/a
+      plan: spark
