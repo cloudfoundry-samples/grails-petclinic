@@ -3,7 +3,8 @@ applications:
 - name: petclinic
   memory: 512M
   instances: 1
-  url: petclinic.${target-base}
+  subdomain: petclinic-${random-word}
+  domain: cfapps.io
   path: target/pets4u-0.1.war
   services:
     petclinic-mysql:

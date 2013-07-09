@@ -3,7 +3,7 @@ Grails Pet Clinic application
 
 This is a Grails port of the standard Spring Pet Clinic web application. It's very simple, consisting of a few domain classes for persistence and three controllers to support the user interface.
 
-The application uses manual configuration to discover the database service bound to the application when pushed to Cloud Foundry, as described in the [Cloud Foundry documentation](http://docs.cloudfoundry.com/docs/using/services/grails-service-bindings.html). View the `grails-app/conf/DataSource.groovy` file to see how the database configuration is done. 
+The application uses the [Cloud Foundry Grails plugin](http://grails.org/plugin/cloud-foundry) to discover the database service bound to the application when pushed to Cloud Foundry, as described in the [Cloud Foundry documentation](http://docs.cloudfoundry.com/docs/using/services/grails-service-bindings.html). 
 
 ### The domain model
 
@@ -39,7 +39,5 @@ After installing the 'cf' [command-line interface for Cloud Foundry](http://docs
 targeting a Cloud Foundry instance, and logging in, the application can be pushed using these commands:
 
     $ cf push
-
-You may need to provide a different URL for the application if the name `petclinic` has already been taking in your Cloud Foundry domain. 
 
 When using the provided `manifest.yml` file, a MySQL service will be created and bound to the app when it is pushed. You can choose a different MySQL service or a PostgreSQL service to bind to the application. 

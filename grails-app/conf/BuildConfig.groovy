@@ -20,7 +20,8 @@ grails.project.dependency.resolution = {
 
     plugins {
         compile ":hibernate:$grailsVersion",
-                ":webxml:1.4.1"
+                ":webxml:1.4.1",
+                ":cloud-foundry:1.2.3"
         build   ":tomcat:$grailsVersion"
     }
 }
