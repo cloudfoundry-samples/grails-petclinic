@@ -29,8 +29,6 @@ This will start the application in development mode and use an in-memory HSQLDB 
 
 *Note:* The first time the `./grailsw` command is run, it will take a while to download the Grails framework. Subsequent Grails commands will run much faster.
 
-*Note:* If the `./grailsw` command fails because `/WEB-INF/applicationContext.xml` is missing, run `./grailsw upgrade` and try again.
-
 ## Deploying to Cloud Foundry
 
 To run the application on Cloud Foundry, first build the project into a .war file:
