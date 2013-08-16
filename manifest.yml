@@ -1,14 +1,20 @@
 ---
 applications:
 - name: petclinic
-  memory: 512M
+  memory: 1024M
   instances: 1
   subdomain: petclinic-${random-word}
   domain: cfapps.io
   path: target/pets4u-0.1.war
+  buildpack: https://github.com/cloudfoundry/java-buildpack
   services:
     petclinic-mysql:
       label: cleardb
       provider: cleardb
       version: n/a
       plan: spark
+    newrelic:
+      label: newrelic
+      provider: newrelic
+      version: n/a
+      plan: standard
